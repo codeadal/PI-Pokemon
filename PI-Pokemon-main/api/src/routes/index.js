@@ -143,17 +143,6 @@ router.post ("/create_pokemon", async (req, res)=> {
     res.send ('Pokemon created')
 });
 
-// router.post ("/create_pokemon", async (req, res)=> {
-//     const {id, name, image, hp, attack, deffense, speed, height, weight} = req.body
-//     const pokemon = {id, name, image, hp, attack, deffense, speed, height, weight}
-//     try {
-//         const pokemons = await createPokemon (pokemon);
-//         res.status(200).send(pokemons);
-//     } catch (error) {
-//         res.status (500).send(error.message);
-//     }
-// });
-
 //   GET | /types  <---- Thunder OK
 
 router.get ("/types", async (req, res) => {
