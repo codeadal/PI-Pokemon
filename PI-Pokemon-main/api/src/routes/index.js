@@ -20,7 +20,6 @@ const getApiInfo = async () => {
         return results.data;
     });
     
-    
     const apiInfo = await data.map (el => {
         return {
             id: el.id,
