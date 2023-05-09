@@ -1,12 +1,18 @@
 import React from "react";
-import { useState,useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, filterPokemonByTypes, filterPokemonCreated, orderByName, orderByPower } from "../actions";
 import {Link} from 'react-router-dom'; 
+// importo los hooks que voy a usar de react
+import { useState,useEffect } from "react";
+//importo los hooks de react-redux (previamente los instalo con mpn i react -reudx)
+import { useDispatch, useSelector } from "react-redux";
+//importo los actions que me interesa usar en este componente
+import { getPokemons, filterPokemonByTypes, filterPokemonCreated, orderByName, orderByPower } from "../actions";
+//importo los componentes que voy a usar
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
 
 
+//Iniciamos
 export default function Home (){
     const dispatch = useDispatch();
     const allPokemons = useSelector ((state) => state.pokemons);
@@ -111,6 +117,7 @@ return (
     allPokemons = {allPokemons.length}
     paginado = {paginado}
     />
+    <SearchBar/>
     {
         currentPokemons?.map ((c) => {
             return (

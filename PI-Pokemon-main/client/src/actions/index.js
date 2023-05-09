@@ -12,6 +12,20 @@ export function getPokemons (){
     };
 }
 
+export function getPokeName (name) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get ("http://localhost:3001/pokemons_name?name=" + name);
+                return dispatch ({
+                    type: "GET_POKEMONS_NAME",
+                    payload: json.data,
+                })
+            } catch (error) {
+                console.log(error);
+        }
+    } ;
+}
+
 export function filterPokemonByTypes (payload) {
     return {
         type: "FILTER_BY_TYPE",

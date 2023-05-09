@@ -12,6 +12,12 @@ function rootReducer (state = initialState,action){
                 pokemons: action.payload,
                 allPokemons: action.payload,
             }
+            case "GET_POKEMONS_NAME":
+                return {
+                    ...state,
+                    pokemons: action.payload,
+                };
+
             case "FILTER_BY_TYPE":
                 const allPokemon = state.allPokemons
                 const statusFiltered = action.payload === 'all' 
@@ -21,6 +27,7 @@ function rootReducer (state = initialState,action){
                     ...state,
                     pokemons: statusFiltered
                 }
+
             case "FILTER_CREATED":
                 state.pokemons = state.allPokemons;
                 const allPokemons = state.allPokemons;
@@ -67,13 +74,13 @@ function rootReducer (state = initialState,action){
             //     }
             
             case "ORDER_BY_POWER":
-  let orderPokPower = action.payload === "weaker"
-    ? [...state.allPokemons].sort((a, b) => a.attack - b.attack)
-    : [...state.allPokemons].sort((a, b) => b.attack - a.attack)
-  return {
-    ...state,
-    pokemons: orderPokPower
-  }
+                let orderPokPower = action.payload === "weaker"
+                ? [...state.allPokemons].sort((a, b) => a.attack - b.attack)
+                : [...state.allPokemons].sort((a, b) => b.attack - a.attack)
+                return {
+                    ...state,
+                    pokemons: orderPokPower
+                }
 
 //             case "ORDER_BY_POWER":
 //   let orderPokPower = action.payload === "weaker"
