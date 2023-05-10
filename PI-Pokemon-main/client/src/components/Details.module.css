@@ -1,0 +1,32 @@
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(128, 0, 128, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    height: 100vh;
+}
+.detail-container h4 {
+    text-shadow: 2px 2px 5px rgba(128, 0, 128, 0.5);
+}
+.title{
+    color: white;
+    font-size: 3rem;
+}
+.pokemonDetails {
+    color: white;
+font-size: 1.2rem;
+
+}
+
+.detailButton {
+    margin-top: 20px;
+    background-color: white;
+    color: rgba(128, 0, 128, 0.8);
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}

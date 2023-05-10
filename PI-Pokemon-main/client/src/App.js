@@ -18,7 +18,7 @@ function App() {
         <Route exact path ='/id/:id' component={Details}/>
 
       </Switch>
-      <h1>Henry Pokemon</h1>
+      <h1 style={{ color: 'white' }}>Creado por Adalberto Orta Ochoa</h1>
     </div>
     </BrowserRouter>
   );

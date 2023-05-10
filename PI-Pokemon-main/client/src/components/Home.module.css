@@ -1,0 +1,110 @@
+.navCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkCreate {
+    order: 1;
+}
+
+.createContainer {
+    display: inline-block;
+    background-color: rgb(50, 5, 71);
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-left: 25%;
+}
+
+.createContainer a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.title {
+    order: 2;
+}
+
+.title h1 {
+    color: white;
+    margin-left: 10px;
+}
+
+.refreshButton {
+    order: 3;
+}
+
+.refreshButton button {
+    color: white;
+    background-color: rgb(50, 5, 71);
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-right: 25%;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-select {
+    margin-right: 20px;
+}
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 20px;
+    background-color: rgb(50, 5, 71);
+}
+
+.pagination ul li {
+    display: inline-block;
+    margin: 5px;
+    color: white;
+}
+
+.pagination ul li a {
+    color: white;
+    font-weight: bolder;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: none;
+}
+
+.pagination ul li a.active {
+    background-color: white;
+    color: rgb(50, 5, 71);
+    border: none;
+    border-radius: 20px;
+}
+
+.card{
+    display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+}
+
+.cardContainer {
+    box-shadow: 0px 5px 8px rgb(50, 5, 71);
+    width: 300px;
+    height: 380px;
+    margin: 10px;
+}

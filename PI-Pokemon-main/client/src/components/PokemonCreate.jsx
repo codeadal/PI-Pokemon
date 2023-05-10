@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import {postPokemons, getTypes} from '../actions/index';
 import { useDispatch, useSelector } from "react-redux";
+import styles from "./PokemonCreate.module.css"
 
 function validate (input) {
     let errors = {};
@@ -109,12 +110,9 @@ useEffect (() => {
 }, [dispatch]);
 
 return (
-    <div>
-        <Link to="/home">
-            <button>Regresar</button>
-        </Link>
-        <h1> Crea tu pokemon </h1>
-        <form onSubmit={(e) => handleSubmit(e)}>
+    <div className={styles.formContainer}>
+        <h1> Crea tu propio pokemon </h1>
+        <form onSubmit={(e) => handleSubmit(e)}className="formContainer">
             <div>
                 <label> Imagen </label>
                 <input
@@ -235,10 +233,14 @@ return (
                 </div>
             ))}
             
-            <button type = 'submit' > Crear Pokemon </button>
+            <button type = 'submit' className={styles.buttons} > Crear Pokemon </button>
         </form>
+        <Link to="/home">
+            <button className={styles.buttons}>Regresar</button>
+        </Link>
     </div>
 )
+}
 // codigo para check box 
 /*<div>
                 <label> Type </label>
@@ -364,4 +366,4 @@ return (
                 onChange={handleCheck}
                 />Water </label>
 </div>*/
-}
+

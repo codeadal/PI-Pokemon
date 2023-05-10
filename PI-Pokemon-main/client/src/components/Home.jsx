@@ -10,6 +10,7 @@ import { getPokemons, filterPokemonByTypes, filterPokemonCreated, orderByName, o
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import styles from "./Home.module.css";
 
 
 //Iniciamos
@@ -47,10 +48,6 @@ function handleFilterPokemonCreated (e) {
     dispatch (filterPokemonCreated (e.target.value))
 }
 
-// const handleSort =(event)=>{
-//     dispatch(emptyFilter())
-//     dispatch(orderByName(event.target.value))
-// }
 function handleSort (e) {
     e.preventDefault ();
     dispatch (orderByName (e.target.value))
@@ -67,13 +64,24 @@ function handlePower (e) {
 //Filtramos por Tipo y origen - tambien ordenamos por orden ascendente y descendente por nombre y ataque
 //Creamos el paginado
 return ( 
-    <div> 
+    <body> 
+        <div className={styles.navCont}>
+        <div className={styles.linkCreate}>
+            <div className={styles.createContainer}>
         <Link to= "/pokemons_create"> Crear nuevo pokemon </Link>
+        </div>
+        </div>
+        <div className={styles.title}>
         <h1>Deck Pokemon </h1>
+        </div>
+        <div className={styles.refreshButton}>
         <button onClick={ (e) => {handleClick(e)}}> Cargar Pokemons Nuevamente </button>
-    <div>
+        </div>
+        </div>
+    <div className="filter-container">
+        <div>
         <h4>Filtrar por Tipo </h4>
-        <select onChange={e => handleFilterType(e)}> 
+        <select className="filter-select" onChange={e => handleFilterType(e)}> 
         <option value = "all" > Todos </option>
         <option value = "unknow"> Desconocido </option>
         <option value = "bug"> Bicho </option>
@@ -96,45 +104,53 @@ return (
         <option value = "steel"> Metal </option>
         <option value = "water"> Agua </option>
     </select>
-    <select onChange={e => handleFilterPokemonCreated(e)}>
-        <h4>Filtrar por Ubicación </h4>
+    <h4>Filtrar por Ubicación </h4>
+    <select className="filter-select" onChange={e => handleFilterPokemonCreated(e)}>
     <option value = "All" > Todos </option>
     <option value = "created"> Pokemons BD </option>
     <option value = "api"> Pokemons Api </option>
     </select>
-    <select onChange={handleSort}>
-        <h4>Ordenar por Nombre </h4>
+    </div>
+    <div>
+    <h4>Ordenar por Nombre </h4>
+    <select className="filter-select" onChange={handleSort}>
         <option value = "asc" > Ascendente </option>
         <option value = "desc"> Descendente </option>
     </select>
-    <select onChange={handlePower}>
-        <h4>Ordenar por Fuerza </h4>
+    <h4>Ordenar por Fuerza </h4>
+    <select className="filter-select" onChange={handlePower}>
         <option value = "weaker"> - Fuerte </option>
         <option value = "stronger" > + Fuerte </option>
     </select>
+    <SearchBar/>
+    </div>
+    </div>
+    <div className = {styles.pagination}>
     <Paginado
     pokemonPerPage = {pokemonPerPage}
     allPokemons = {allPokemons.length}
     paginado = {paginado}
     />
-    <SearchBar/>
+    </div>
+    <div className={styles.card}>
     {
         currentPokemons?.map ((c) => {
             return (
-                <div>
-                    <Link to = {"/home/" + c.id}>
+                <div className={styles.cardContainer}>
+                    <Link to = {"/id/" + c.id}>
                         <Card 
                         name={ c.name} 
                         image={c.image} 
                         type={c.types} 
-                        key = {c.id}/>
+                        />
                     </Link>
                 </div>
             );
         })
     }
     </div>
-</div>
+
+</body>
 )
 
 

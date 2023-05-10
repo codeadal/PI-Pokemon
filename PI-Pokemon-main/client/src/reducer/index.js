@@ -25,6 +25,11 @@ function rootReducer (state = initialState,action){
                     types: action.payload,
                 };
 
+            case "GET_DETAIL":
+                return {
+                    ...state,
+                    detail: action.payload,
+                };
 
             case "FILTER_BY_TYPE":
                 const allPokemon = state.allPokemons
@@ -60,32 +65,7 @@ function rootReducer (state = initialState,action){
                     ...state,
                     pokemons: sortedArr,
                 };
-            // case "ORDER_BY_NAME":
-            //     let sortedArr = action.payload === "asc"
-            //     ? state.pokemons.sort (function (a,b) {
-            //         if (a.name > b.name){
-            //             return 1;
-            //         }
-            //         if (b.name > a.name){
-            //             return -1;
-            //         }
-            //         return 0;
-            //     }):
-            //     state.pokemons.sort ( function (a,b) {
-            //         if (a.name > b.name){
-            //             return -1;
-            //     }
-            //     if (b.name > a.name) {
-            //         return 1;
-            //     }
-            //     return 0;
-            //     }
-            //     )
-            //     return {
-            //         ...state,
-            //         pokemons: sortedArr
-            //     }
-            
+
             case "ORDER_BY_POWER":
                 let orderPokPower = action.payload === "weaker"
                 ? [...state.allPokemons].sort((a, b) => a.attack - b.attack)
@@ -94,42 +74,6 @@ function rootReducer (state = initialState,action){
                     ...state,
                     pokemons: orderPokPower
                 }
-
-//             case "ORDER_BY_POWER":
-//   let orderPokPower = action.payload === "weaker"
-//     ? state.allPokemons.sort((a, b) => a.attack - b.attack)
-//     : state.allPokemons.sort((a, b) => b.attack - a.attack)
-//   return {
-//     ...state,
-//     allPokemons: orderPokPower
-//   }
-            // case "ORDER_BY_POWER":
-            //     let orderPokPower = action.payload === "weaker"
-            //     ? state.allPokemons.sort (function (a, b) {
-            //         if ( a.attack > b.attack) {
-            //             return 1
-            //         }
-            //         if ( b.attack > a.attack) {
-            //             return -1
-            //         }
-            //         return 0;
-            //     })
-            //     : state.allPokemons.sort(function (a, b) {
-            //         if (a.attack > b.attack) {
-            //             return -1
-            //         }
-            //         if (b.attack > a.attack) {
-            //             return 1
-            //         }
-            //         return 0
-            //     })
-            //     return {
-            //         ...state,
-            //         pokemons: orderPokPower
-            //     }
-
-            
-
 
             default:
                 return state;
