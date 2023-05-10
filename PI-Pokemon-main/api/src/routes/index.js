@@ -20,6 +20,7 @@ const getApiInfo = async () => {
         return results.data;
     });
     
+    
     const apiInfo = await data.map (el => {
         return {
             id: el.id,
@@ -119,7 +120,7 @@ router.post ("/create_pokemon", async (req, res)=> {
         height, 
         weight,
         createdInDb,
-        types 
+        types
     } = req.body
 
     let createPokemon = await Pokemons.create ({
