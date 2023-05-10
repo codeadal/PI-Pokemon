@@ -33,6 +33,28 @@ export function filterPokemonByTypes (payload) {
 }
 }
 
+export function getTypes () {
+    return async function (dispatch) {
+        var info = await axios.get("http://localhost:3001/types", {
+        });
+        return dispatch ({ 
+            type: "GET_TYPES",
+            payload: info.data
+        });
+    };
+}
+
+export function postPokemons (payload){
+    return async function (dispatch) {
+        const postPokemon = await axios.post ("http://localhost:3001/create_pokemon", payload );
+        console.log (postPokemon)
+        dispatch({
+            type: "POST_POKEMON",
+            payload: postPokemon.data,
+        });
+      };
+    }
+
 export function filterPokemonCreated (payload) {
     return {
         type: "FILTER_CREATED",
